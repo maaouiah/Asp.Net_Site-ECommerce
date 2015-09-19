@@ -1,4 +1,4 @@
-TP Développement .Net : Site web E-commerce
+Projet Développement .Net : Site web E-commerce
 ===================
 
 Projet .NET : Développement d’un site web E-commerce spécialisé dans la vente des vêtements.
@@ -13,19 +13,22 @@ L’objectif principal du projet est la conception et le développement d’un s
 
 ##Spécifications fonctionnelles :
 A fin de décrire au mieux les différentes fonctionnalités de l’application, nous avons décidé d’organiser les différentes tâches sous un ensemble de modules.
-	###Module : Utilisateurs
+
+	##Module : Utilisateurs
 	Le module utilisateurs permet à toute personne visitant le site de pouvoir s’enregistrer , se connecter et de modifier leur profil. 
 		- Inscription
 		- Connexion
 		- Consultation du profil
 		- Modification du profil
-	###Module : Panier
+
+	##Module : Panier
 	Le module «panier» constitue une partie très importante du processus de développement du site web. En fait c’est le module qui va permettre aux clients de gérer leurs différentes commandes et de les valider définitivement pour passer à l’étape du payement.
 		- Ajouter au panier
 		- Modifier le panier
 		- Supprimer du panier
 		- Valider le contenu du panier
-	###Module : Commande
+
+	##Module : Commande
 	La commande est l’étape avant dernière dans le processus d’achat d’un article. la création du commande passe premièrement pas le traitement du contenu du panier et la validation des quantités des articles et des dates de disponibilité. si le traitement est effectué avec succès on sauvegarde les informations et on déclenche le processus de traitement des transactions bancaires pour le payement.
 		- Générer un commande
 		- Modifier une commande 
@@ -33,7 +36,8 @@ A fin de décrire au mieux les différentes fonctionnalités de l’application,
 		- Modifier une commande
 		- Consulter un commande
 		- Annuler une commande
-	###Module : Article
+		
+	##Module : Article
 	Chaque article est associé à des catégories et un genre. ces associations sont utilisées principalement pour permettre aux utilisateurs d’affiner le résultat de leurs recherches.
 		- Ajouter un article
 		- Modifier un article
@@ -42,14 +46,14 @@ A fin de décrire au mieux les différentes fonctionnalités de l’application,
 		- Associer un article à une catégorie
 		- Associer un article à un genre
 
-	###Module : Fournisseurs 
+	##Module : Fournisseurs 
 	Le fournisseur ici, est intégré à la solution d’un manière partielle pour le seul objectif de donner aux utilisateurs la possibilité de trier les article selon la marque.
 		- Ajouter fournisseur
 		- Supprimer fournisseur
 		- Modifier fournisseur
 		- Consulter fournisseur 
 
-	###Module : Administration
+	##Module : Administration
 	Le module administration regroupe un ensemble de tâches issues des autres modules à fin d’assurer et administrer le bon fonctionnement global de l’application.Il comporte aussi les tâches liés à la gestion des utilisateurs du site et la configuration globale.
 		- Gérer les utilisateur 
 			- Supprimer un utilisateur
