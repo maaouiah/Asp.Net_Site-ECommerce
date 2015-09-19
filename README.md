@@ -4,8 +4,11 @@ Projet Développement .Net : Site web E-commerce
 Projet .NET : Développement d’un site web E-commerce spécialisé dans la vente des vêtements.
 
 Dans ce projet, je vais utiliser :
+
 	- Visual Studio 2013 : est un ensemble complet d'outils de développement permettant de générer des applications Web ASP.NET, des Services Web XML, des applications bureautiques et des applications mobiles.
+
 	- Le langage de programmation C# qui est un langage orienté objet de type sécurisé et élégant qui permet aux développeurs de générer diverses applications fiables qui s'exécutent sur le .NET Framework.
+	
 	- Modèle-Vue-Contrôleur (MVC). MVC est un schéma de conception qui sépare l'application en trois composants.principaux : le modèle, la vue et le contrôleur.
 
 ##L’objectif: 
