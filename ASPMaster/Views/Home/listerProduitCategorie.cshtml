@@ -1,0 +1,21 @@
+﻿@model ASPMaster.Models.Categorie
+@{
+    ViewBag.Title = "Produit";
+}
+<h1>Liste des produits de la catégorie : @Model.Nom</h1>
+<br /><br />
+@foreach (var produit in Model.Produits)
+{
+    <div class=" col-md-2 col-lg-3">
+        <div class="thumbnail">
+            <img src="@produit.Image" alt="Computer Man" style="width:250px;height:200px">
+            <div class="caption">
+                <center>
+                    <a href="/Produit/DetailsForUser/@produit.ProduitId" class="btn btn-primary" role="button">Details »</a>
+                    <h5>Prix : @produit.Prix</h5>
+                    @Html.ActionLink("Ajouter au panier »", "AjouterProduit", "Panier", new { id = @produit.ProduitId }, "")
+                </center>
+            </div>
+        </div>
+    </div>
+}

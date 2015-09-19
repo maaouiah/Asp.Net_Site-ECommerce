@@ -1,0 +1,73 @@
+﻿@model ASPMaster.Models.Produit
+@{
+    ViewBag.Title = "DetailsForUser";
+}
+
+
+
+<div>
+    <h1>Produit : @Html.DisplayFor(model => model.Nom)</h1>
+    <hr />
+    <img src="@Model.Image" alt="Computer Man" style="width:250px;height:200px">
+    <br /><br />
+    <table class="table" align="center">
+       
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAjout)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategorieId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantite)
+            </th>
+            <th></th>
+        </tr>
+       
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Prix)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.DateAjout)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CategorieId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.TypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Quantite)
+            </td>   
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Accueil", "Index","Home")
+
+    <p class="button">
+    @Html.ActionLink("Ajouter au panier", "AjouterProduit", "Panier", new { id = @Model.ProduitId }, "")
+    </p>
+
+</p>

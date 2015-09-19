@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ASPMaster.Models.Categorie>
+
+@{
+    ViewBag.Title = "Index";
+    <br /><br /><br /><br /><br /><br />
+}
+@foreach (var categorie in Model)
+{
+    <div class=" col-md-3 col-sm-4">
+        <div class="thumbnail">
+            <div class="caption">
+                <center>
+                    <a href="/Home/listerProduitCategorie?categorie=@categorie.Nom" class="btn btn-primary" role="button">@categorie.Nom</a>
+                </center>
+            </div>
+        </div>
+    </div>
+}

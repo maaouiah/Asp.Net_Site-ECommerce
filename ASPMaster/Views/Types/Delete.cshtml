@@ -1,0 +1,31 @@
+﻿@model ASPMaster.Models.Type
+@RenderPage("../Shared/_Admin.cshtml")
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer Type : </h2>
+
+<h5>Êtes-vous sûr de vouloir supprimer ce type : @Html.DisplayFor(model => model.Nom) ?</h5>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("<< Retour", "Index")
+        </div>
+    }
+</div>

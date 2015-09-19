@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"
+        type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".PlusProduit").click(function () {
+            // Get the id from the link
+            var recordtoupdate = $(this).attr("data-id");
+            if (recordtoupdate != '') {
+                // Perform the ajax post
+                $.post("/Panier/PlusProduit", { "id": recordtoupdate },
+                    function (data) {
+
+                        if (data.ct == "1") {
+
+                            $('#totalapayer').text(data.Total);
+                            $("#quantite_" + recordtoupdate).text(data.Quatite);
+                            $("#rquantite_" + recordtoupdate).text(data.Quatite);
+                            $("#total_" + recordtoupdate).text(data.TotalRow);
+
+                        }
+
+
+                    });
+            }
+        });
+
+        // Document.ready -> link up remove event handler
+        $(".MinusProduit").click(function () {
+            // Get the id from the link
+            var recordtoupdate = $(this).attr("data-id");
+            if (recordtoupdate != '') {
+                // Perform the ajax post
+                $.post("/Panier/MoinsProduit", { "id": recordtoupdate },
+                    function (data) {
+
+                        if (data.ct == "1") {
+
+                            $('#totalapayer').text(data.Total);
+                            $("#quantite_" + recordtoupdate).text(data.Quatite);
+                            $("#rquantite_" + recordtoupdate).text(data.Quatite);
+                            $("#total_" + recordtoupdate).text(data.TotalRow);
+
+                        }
+                        else if (data.ct == "0") {
+                            $("#row-" + recordtoupdate).fadeOut('slow');
+                        }
+
+                    });
+            }
+        });
+
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var recordtoupdate = $(this).attr("data-id");
+            if (recordtoupdate != '') {
+                // Perform the ajax post
+                $.post("/Panier/SupprimerProduit", { "id": recordtoupdate },
+                    function (data) {
+
+                        $("#row-" + recordtoupdate).fadeOut('slow');
+                        $('#totalapayer').text(data.Total);
+
+                    });
+            }
+        });
+
+
+    });
+</script>
+
+
+<h2>Mon panier</h2>
+
+<div>
+    @if (ViewBag.Liste.Count > 0)
+    {
+        <table class="table table-hover">
+            <tr class="carousel">
+                <th>
+                    Image
+                </th>
+                <th class="danger">
+                    Infos
+                </th>
+            </tr>
+            @foreach (var item in ViewBag.Liste)
+            {
+                <tr id="row-@item.Prod.ProduitId">
+                    <td>
+                        <img src="@item.Prod.Image" alt="Computer Man" style="width:250px;height:250px">
+                    </td>
+                    <td>
+                        <h5>Nom : @item.Prod.Nom </h5><hr />
+                        <h5>Quantité : <span id="quantite_@item.Prod.ProduitId">@item.quantite</span></h5><hr />
+                        <a href="#" class="PlusProduit" data-id="@item.Prod.ProduitId">
+                            <img src="~/Content/img/icon/add.png" alt="Computer Man" style="width:25px;height:25px">
+                        </a>
+                        <a href="#" class="MinusProduit" data-id="@item.Prod.ProduitId">
+                            <img src="~/Content/img/icon/moin.png" alt="Computer Man" style="width:25px;height:25px">
+                        </a>
+                        <a href="#" class="RemoveLink" data-id="@item.Prod.ProduitId">
+                            <img src="~/Content/img/icon/delet.png" alt="Computer Man" style="width:25px;height:25px">
+                        </a>
+                        <div>
+                            <hr />
+                            <h5>Prix de <span id="rquantite_@item.Prod.ProduitId">@item.quantite</span> article(s) : <span id="total_@item.Prod.ProduitId">@item.TotalPrice</span></h5><hr />
+                        </div>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <div>
+            <strong>Prix total à payer : </strong>
+            <div id="totalapayer">@ViewBag.total</div>
+        </div>
+        @(ViewBag.total > 0)
+        {
+            <p class="button">
+                <a href="~/Panier/Checkout" class="btn btn-success" role="button">Checkout »</a>
+            </p>
+
+        }
+
+    }
+    else
+    {
+        <p>Votre panier est vide</p>
+    }
+</div>

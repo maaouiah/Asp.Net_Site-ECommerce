@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ASPMaster.Models.Produit>
+
+@{
+    ViewBag.Title = "Index";
+    <br />
+}
+<div class="row">
+    <div class="col-lg-4">
+        <img class="img-responsive" src="~/Content/tmp/homme.jpg" alt="Generic placeholder image" style="width: 350px; height: 250px;">
+        <h2>Vêtements hommes Placard</h2>
+        <p>Les hommes n'ont pas besoin d'une grande garde-robe pour paraître au top... 
+        <p><a class="btn btn-default" href="/Home/listerProduitType?type=Homme" role="button">Détails »</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+        <img class="img-responsive" src="~/Content/tmp/femme.jpg" alt="Generic placeholder image" style="width: 350px; height: 250px;">
+        <h2>Vêtements femmes Placard</h2>
+        <p>Qui a dit que la mode est éphémère ? Car il n’y a rien d’éphémère... 
+        <p><a class="btn btn-default" href="/Home/listerProduitType?type=Femme" role="button">Détails »</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+        <img class="img-responsive" src="~/Content/tmp/enfant.jpg" alt="Generic placeholder image" style="width: 350px; height: 250px;">
+        <h2>Vêtements enfants Placard</h2>
+        <p>Les parents et la mode enfants ont une chose en commun...
+    <p><a class="btn btn-default" href="/Home/listerProduitType?type=Bebe" role="button">Détails »</a></p>
+    </div><!-- /.col-lg-4 -->
+</div><!-- /.row --><br />
+@foreach (var produit in Model)
+{
+    <div class=" col-md-2 col-lg-3">
+        <div class="thumbnail">
+            <img src="@produit.Image" alt="Computer Man" style="width:250px;height:250px">
+            <div class="caption">
+                <center>
+                    <a href="/Produit/DetailsForUser/@produit.ProduitId" class="btn btn-primary" role="button">Details »</a>
+                   <h5>Prix : @produit.Prix</h5>
+                   @Html.ActionLink("Ajouter au panier »", "AjouterProduit", "Panier", new { id = @produit.ProduitId }, "")
+                </center>
+            </div>
+        </div>
+    </div>
+}

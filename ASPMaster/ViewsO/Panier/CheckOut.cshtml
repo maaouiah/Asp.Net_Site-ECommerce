@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2>CheckOut : payer votre commande</h2>
+
+<div>
+
+    
+    @using (Html.BeginForm())
+    {
+
+        <h3>Par carte bancaire </h3>
+        <label>Numéro de votre carte bancaire</label><br />
+        <input type="text" name="cartenumber" /><br />
+        <label>Cryptograme</label><br />
+        <input type="text" /><br />
+        <label>Date d'expriation</label><br />
+        <input type="text" placeholder="Mois" />
+        <input type="text" placeholder="Année" />
+        <br /><br />
+        
+        <h3>Par PayPal</h3>
+        <label>Adresse Email</label><br />
+        <input type="text" placeholder="Email PayPal" /><br /><br /><br />
+        
+        <input type="submit" value="Payer" />
+    }
+
+</div>
+

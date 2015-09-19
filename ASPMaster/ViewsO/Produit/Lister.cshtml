@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ASPMaster.Models.Produit>
+@RenderPage("../Shared/_Admin.cshtml")
+@{
+    ViewBag.Title = "Lister";
+}
+
+
+
+
+<p>
+    <h2>Liste des Produits</h2>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAjout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategorieId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAjout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategorieId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProduitId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProduitId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProduitId })
+        </td>
+    </tr>
+}
+
+</table>

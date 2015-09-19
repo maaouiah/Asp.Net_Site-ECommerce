@@ -1,0 +1,87 @@
+﻿@model ASPMaster.Models.Produit
+@RenderPage("../Shared/_Admin.cshtml")
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer Catégorie : </h2>
+
+<h5>Êtes-vous sûr de vouloir supprimer ce produit : @Html.DisplayFor(model => model.Nom) ?</h5>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAjout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAjout)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategorieId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategorieId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("<< Retour", "Lister")
+        </div>
+    }
+</div>

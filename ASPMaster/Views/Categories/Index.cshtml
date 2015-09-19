@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ASPMaster.Models.Categorie>
+@RenderPage("../Shared/_Admin.cshtml")
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p>
+    <h1>Liste des catégorie : </h1>
+    @Html.ActionLink("Ajouter nouvaux catégorie", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategorieId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategorieId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategorieId })
+        </td>
+    </tr>
+}
+
+</table>

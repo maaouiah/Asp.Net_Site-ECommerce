@@ -1,0 +1,26 @@
+﻿@model ASPMaster.Models.Type
+@RenderPage("../Shared/_Admin.cshtml")
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>Details de produit : @Html.DisplayFor(model => model.Nom)</h1>
+
+<div>
+    <h4>Type</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TypeId }) |
+    @Html.ActionLink("<< Retour", "Index")
+</p>

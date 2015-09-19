@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ASPMaster.Models.Produit>
+
+@{
+    ViewBag.Title = "Index";
+    <br /><br /><br /><br /><br /><br />
+}
+@foreach (var produit in Model)
+{
+    <div class=" col-md-3 col-sm-4">
+        <div class="thumbnail">
+            <img src="@produit.Image" alt="Computer Man" style="width:250px;height:200px">
+            <div class="caption">
+                <center>
+                    <a href="/Produit/DetailsForUser/@produit.ProduitId" class="btn btn-primary" role="button">Details</a>
+                </center>
+            </div>
+        </div>
+    </div>
+}
